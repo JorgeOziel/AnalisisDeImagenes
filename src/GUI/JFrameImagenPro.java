@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import funciones.HerramientasComunes;
+import herramientas.CrearGrafica;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -24,7 +26,7 @@ import open.AbrirImagen;
 public class JFrameImagenPro extends JFrame implements ActionListener{
     private JLabel etiqueta;
     private JMenuBar mb;
-    private JMenuItem menu1,menu2,menu3;
+    private JMenuItem menu1,menu2,menu3,menu4;
     private BufferedImage imagen;
     public JFrameImagenPro() {
         init();
@@ -39,13 +41,20 @@ public class JFrameImagenPro extends JFrame implements ActionListener{
         mb=new JMenuBar();
         setJMenuBar(mb);
         menu1=new JMenu("Opciones");
+        
         mb.add(menu1);
         menu2=new JMenuItem("Guardar");
+        
         menu1.add(menu2);
         menu2.addActionListener(this);
         menu3=new JMenuItem("Convertir a escala de grises");
+        
         menu1.add(menu3);
         menu3.addActionListener(this);
+        menu4 = new JMenuItem("Histograma de frecuencias");
+        
+        menu1.add(menu4);
+        menu4.addActionListener(this);
         add(this.etiqueta);
         setSize(700, 600);
         setVisible(true);
@@ -72,6 +81,22 @@ public class JFrameImagenPro extends JFrame implements ActionListener{
             }
             Image imagenResultante = AbrirImagen.toImage(imagen);
             JFrameImagenPro auxResultante = new JFrameImagenPro(imagenResultante);
+        }
+        if(e.getSource()==menu4){
+            int auxR[] = new int[256];
+            int auxB[] = new int[256];
+            int auxG[] = new int[256];
+            for(int i=0;i<imagen.getWidth();i++){
+                for(int j=0;j<imagen.getHeight();j++){
+                   Color c = new Color(imagen.getRGB(i,j));
+                   auxR[c.getRed()]++;
+                   auxB[c.getBlue()]++;
+                   auxG[c.getGreen()]++;
+                }
+            }
+            //BORRAR LINEA SIGUIENTE
+        CrearGrafica cg = new CrearGrafica(auxR,auxB,auxG);
+        cg.crear();
         }
     }
 }

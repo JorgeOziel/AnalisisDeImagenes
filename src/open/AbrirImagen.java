@@ -54,7 +54,7 @@ public class AbrirImagen{
             ImageIO.write(imagen, "jpg", new File("foto.jpg"));
         } catch (IOException e) {
         System.out.println("Error de escritura");
-}
+        }
     }
     public static Image toImage (BufferedImage bi){
         return bi.getScaledInstance(bi.getWidth(),bi.getHeight(), BufferedImage.TYPE_INT_RGB);
