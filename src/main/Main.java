@@ -6,7 +6,6 @@ package main;
 
 import GUI.JFrameImagen;
 import GUI.JFrameImagenPro;
-import RGB.jFrame;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
