@@ -4,7 +4,6 @@
  */
 package GUI;
 
-import funciones.HerramientasComunes;
 import herramientas.CrearGrafica;
 import java.awt.Color;
 import java.awt.Image;
@@ -24,6 +23,7 @@ import open.AbrirImagen;
  * @author oziel
  */
 public class JFrameImagenPro extends JFrame implements ActionListener{
+    //MENÚ BAR
     private JLabel etiqueta;
     private JMenuBar mb;
     private JMenuItem menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8;
@@ -66,18 +66,17 @@ public class JFrameImagenPro extends JFrame implements ActionListener{
         menu6 = new JMenuItem("Umbralización");
         menu1.add(menu6);
         menu6.addActionListener(this);
-        add(this.etiqueta);
         
         menu7 = new JMenuItem("binarizacion");
         menu1.add(menu7);
         menu7.addActionListener(this);
-        add(this.etiqueta);
+        
         
         menu8 = new JMenuItem("Negativo");
         menu1.add(menu8);
         menu8.addActionListener(this);
-        add(this.etiqueta);
         
+        add(this.etiqueta);
         setSize(700, 600);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
