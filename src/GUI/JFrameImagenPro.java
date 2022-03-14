@@ -293,7 +293,6 @@ public class JFrameImagenPro extends JFrame implements ActionListener{
         JFrameImagenPro auxResultante = new JFrameImagenPro(imagenResultante);
     }
     public int umbralAutomatico(int[] histograma){
-        System.out.println("NOTA1");
         int ui = calcularUmbralInicial(histograma);
         int uNuevo=0;
         System.out.println(ui);
